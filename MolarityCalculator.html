@@ -124,6 +124,7 @@
               </p>
             </div>
         </div>
+        <!-- The row containing the input boxes for the user -->
         <div class="row">
             <div class="col-lg-4 offset=0">
               <input type="text" class="form-control" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
@@ -143,28 +144,36 @@
               <br>
               <hr noshade style="border-width:5px">
               <input type="text" class="form-control" style="margin-top:-13px" id="numberOfLiters" placeholder="Number of Liters">
-              <button type="button" class="btn btn-primary" id="molButton" style="margin-top:8px" onclick="calculateMolarity()">Calculate</button>
+              <button type="button" class="btn btn-primary" id="molarityButton" style="margin-top:8px" onclick="calculateMolarity()">Calculate</button>
               <p id="molarityAnswer"style="margin-top: 5px">The Answer will display here!</p>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4">
-              <p>Often times problems contain grams of a solute.<br>
+              <p>
+                Often times problems contain grams of a solute.<br>
                 If this is the case, the grams must be converted to moles. This is simply converted by dividing<br>
                 the grams given in the problem, by the molar mass of the solute itself.
               </p>
             </div>
             <div class="col-lg-3.5" style="margin-left:15px; margin-top:80px">
-              <p style="margin-top:-125px">You'll often encounter milliliters instead of liters<br>
-                for solution measurements. All calulations for<br>
+              <p style="margin-top:-125px">
+                You'll often encounter problems where you're<br>
+                given milliliters instead of liters for solution<br>
+                measurements. However, all calculations for<br>
                 molarity involve liters.<br>
                 So you must convert the millileters into liters.<br>
                 <strong>You must divide the milliliters by 1000.</strong><br>
-                This will give you the liters of solution to<br>
-                calculate the molarity.
+                The above input field does that calculation<br>
+                for you. Just enter the milliliters you're<br>
+                given and click Convert.
               </p>
             </div>
-            <div class="col-lg-2 offset=0">
+            <div class="col-lg-4 offset=0" style="margin-left:42px;">
+              <p>
+                 After completing the above calculation<br>
+                 you should have your molarity!
+              </p>
             </div>
         </div>
         <!--div class="row">
@@ -197,20 +206,47 @@
         var molarMass = document.getElementById("molarMass").value;
         var molesofSolute = gramsGiven / molarMass;
         var formattedMolesOfSolute = molesofSolute.toFixed(3);
-        document.getElementById("answer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + "</strong> (Enter another one!)";
+        document.getElementById("answer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
       }
       function calculateMolarity(){
         var moles = document.getElementById("numberOfMoles").value;
         var liters = document.getElementById("numberOfLiters").value;
         var molarity = moles / liters;
         var formattedMolarity = molarity.toFixed(3)
-        document.getElementById("molarityAnswer").innerHTML = "The Answer is: <strong>" + formattedMolarity + "</strong> (Enter another one!)";
+        document.getElementById("molarityAnswer").innerHTML = "The Answer is: <strong>" + formattedMolarity + " M</strong> (Enter another one!)";
       }
       function milliliterConversion(){
         var milliliters = document.getElementById("milliliters").value;
         var liters = milliliters / 1000;
-        document.getElementById("literAnswer").innerHTML = "<strong>" + liters + "</strong> liters. (Enter another one!)";
+        document.getElementById("literAnswer").innerHTML = "<strong>" + liters + " L</strong> (Enter another one!)";
       }
+
+      // Allows user to click enter to calulate step 1
+      document.getElementById("molarMass")
+          .addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode == 13) {
+              document.getElementById("molButton").click();
+          }
+      });
+
+      // Allows the user to click enter to calculate step 2
+      document.getElementById("milliliters")
+          .addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode == 13) {
+              document.getElementById("literButton").click();
+          }
+      });
+
+      // Allows the user to click enter to calculate step 3
+      document.getElementById("numberOfLiters")
+          .addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode == 13) {
+              document.getElementById("molarityButton").click();
+          }
+      });
     </script>
 
   </body>
