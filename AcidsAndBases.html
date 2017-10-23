@@ -95,7 +95,8 @@
           as basicity.</p>
           <p>Often times when talking about pH and pOH, there<br>
           will also be associated calculations to determine the<br>
-          hydronium and hydroxide ion concentration respectively.<br></p>
+          hydronium <strong>[H<sup>+</sup>]</strong> and hydroxide ion concentration <strong>[OH<sup>-</sup>]</strong><br>
+          respectively.<br></p>
           <p>The Picture below displays the conversions:</p>
           <img src="http://blog.science-matters.org/wp-content/uploads/2013/06/Ph.jpg" alt="Acid and Base Conversion" style="width: 80%; height: auto; text-align: left;">
           <p>This image is from the science matters blog, check out the page <a href="http://blog.science-matters.org/2013/06/14/converting-h-to-ph-poh-and-oh/" target="_blank">here!</a><br>
@@ -105,7 +106,43 @@
         </div>
         <div class="col-lg-5">
           <p>The easiest conversion in the chart is converting<br>
-          from pH &rarr; pOH</p>
+          from <strong>pH &rarr; pOH</strong><br>
+          The calculator below will help you determine each number.</p>
+          <form action="" class="form-inline">
+              <div class="form-group">
+                  <input type="text" id="pH" onkeyup="phtopOH()" class="form-control" placeholder="pH" size="3">
+              </div>
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp;+&nbsp;</p>
+              </div>
+              <div class="form-group">
+                   <input type="text" id="pOH" onkeyup="pOHtopH()" class="form-control" placeholder="pOH" size="3">
+              </div>
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp; = &nbsp; 14</p>
+              </div>
+          </form>
+          <p style="margin-top: 10px">The next pH related conversion is from <strong>pH &rarr; [H<sup>+</sup>]</strong><br>
+          <strong>Note:</strong> make the ph negative when you enter it!</p>
+          <form action="" class="form-inline">
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp; 10^</p>
+              </div>
+              <div class="form-group">
+                   <input type="text" id="negativepH" onkeyup="pHtoHydronium()" class="form-control" placeholder="-pH" size="3">
+              </div>
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp; = &nbsp;</p>
+              </div>
+              <div class="form-group">
+                  <p style="margin:0px 5px 0px 0px"> [H<sup>+</sup>] </p>
+              </div>
+              <div class="form-group">
+                  <p style="margin:0px 5px 0px 0px" id="phToHydroniumAnswer"></p>
+              </div>
+              <div class="form-group">
+              </div>
+          </form>
         </div>
       </div>
       <div class="row">
@@ -117,6 +154,23 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
+    <script>
+        function phtopOH(){
+            var ph = document.getElementById("pH").value;
+            var conversion = 14 - ph;
+            document.getElementById("pOH").value = conversion;
+        }
+        function pOHtopH(){
+          var pOH = document.getElementById("pOH").value;
+          var conversion = 14 - pOH;
+          document.getElementById("pH").value = conversion;
+        }
+        function pHtoHydronium(){
+          var negativePH = document.getElementById("negativepH").value;
+          var hydroniumConcentration = Math.pow(10, negativePH);
+          document.getElementById("phToHydroniumAnswer").innerHTML = "&nbsp; = &nbsp;" + hydroniumConcentration;
+        }
+    </script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
