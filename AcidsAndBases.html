@@ -123,7 +123,7 @@
               </div>
           </form>
           <p style="margin-top: 10px">The next pH related conversion is from <strong>pH &rarr; [H<sup>+</sup>]</strong><br>
-          <strong>Note:</strong> make the ph negative when you enter it!</p>
+          <strong>Note:</strong> make the pH negative when you enter it!</p>
           <form action="" class="form-inline">
               <div class="form-group">
                    <p style="margin:0px 5px 0px 5px"> &nbsp; 10^</p>
@@ -139,6 +139,67 @@
               </div>
               <div class="form-group">
                   <p style="margin:0px 5px 0px 0px" id="phToHydroniumAnswer"></p>
+              </div>
+              <div class="form-group">
+              </div>
+          </form>
+          <p style="margin-top: 10px">The next pOH related conversion is from <strong>pOH &rarr; [OH<sup>-</sup>]</strong><br>
+          <strong>Note:</strong> make the pOH negative when you enter it!</p>
+          <form action="" class="form-inline">
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp; 10^</p>
+              </div>
+              <div class="form-group">
+                   <input type="text" id="negativepOH" onkeyup="pOHtoHydroxide()" class="form-control" placeholder="-pH" size="3">
+              </div>
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp; = &nbsp;</p>
+              </div>
+              <div class="form-group">
+                  <p style="margin:0px 5px 0px 0px"> [OH<sup>-</sup>] </p>
+              </div>
+              <div class="form-group">
+                  <p style="margin:0px 5px 0px 0px" id="pohToHydroxideAnswer"></p>
+              </div>
+              <div class="form-group">
+              </div>
+          </form>
+          <p style="margin-top: 10px">The next pH related conversion is from <strong>[H<sup>+</sup>] &rarr; pH</strong><br></p>
+          <form action="" class="form-inline">
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp; -log</p>
+              </div>
+              <div class="form-group">
+                   <input type="text" id="hydroniumConcentration" onkeyup="HydroniumtoPH()" class="form-control" placeholder="[H⁺]" size="3">
+              </div>
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp; = &nbsp;</p>
+              </div>
+              <div class="form-group">
+                  <p style="margin:0px 5px 0px 0px"> pH </p>
+              </div>
+              <div class="form-group">
+                  <p style="margin:0px 5px 0px 0px" id="HydroniumtoPH"></p>
+              </div>
+              <div class="form-group">
+              </div>
+          </form>
+          <p style="margin-top: 10px">The next pOH related conversion is from <strong>[OH<sup>-</sup>] &rarr; pOH</strong><br></p>
+          <form action="" class="form-inline">
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp; -log</p>
+              </div>
+              <div class="form-group">
+                   <input type="text" id="hydroxideConcentration" onkeyup="HydroxidetoPOH()" class="form-control" placeholder="[OH⁻]" size="3">
+              </div>
+              <div class="form-group">
+                   <p style="margin:0px 5px 0px 5px"> &nbsp; = &nbsp;</p>
+              </div>
+              <div class="form-group">
+                  <p style="margin:0px 5px 0px 0px"> pOH </p>
+              </div>
+              <div class="form-group">
+                  <p style="margin:0px 5px 0px 0px" id="HydroxidetoPOH"></p>
               </div>
               <div class="form-group">
               </div>
@@ -169,6 +230,21 @@
           var negativePH = document.getElementById("negativepH").value;
           var hydroniumConcentration = Math.pow(10, negativePH);
           document.getElementById("phToHydroniumAnswer").innerHTML = "&nbsp; = &nbsp;" + hydroniumConcentration;
+        }
+        function HydroniumtoPH(){
+          var hydroniumConcentration = document.getElementById("hydroniumConcentration").value;
+          var ph = Math.log10(hydroniumConcentration);
+          document.getElementById("HydroniumtoPH").innerHTML = "&nbsp; = &nbsp;-" + ph;
+        }
+        function HydroxidetoPOH(){
+          var hydroxideConcentration = document.getElementById("hydroxideConcentration").value;
+          var poh = Math.log10(hydroxideConcentration);
+          document.getElementById("HydroxidetoPOH").innerHTML = "&nbsp; = &nbsp;-" + poh;
+        }
+        function pOHtoHydroxide(){
+          var negativePOH = document.getElementById("negativepOH").value;
+          var hydroxideConcentration = Math.pow(10, negativePOH);
+          document.getElementById("pohToHydroxideAnswer").innerHTML = "&nbsp; = &nbsp;" + hydroxideConcentration;
         }
     </script>
     <script src="vendor/jquery/jquery.min.js"></script>
