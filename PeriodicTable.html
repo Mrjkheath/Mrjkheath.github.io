@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Acids and Bases</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/ChemDoodleWeb-8.0.0/install/ChemDoodleWeb.css" type="text/css">
+  <script type="text/javascript" src="vendor/ChemDoodleWeb-8.0.0/install/ChemDoodleWeb.js"></script>
+
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      padding-top: 54px;
+    }
+    @media (min-width: 992px) {
+      body {
+        padding-top: 56px;
+      }
+    }
+      p{
+          text-align: left
+      }
+
+      input {
+        display: inline-block;
+        float: left;
+      }
+
+  </style>
+
+</head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="http://Mrjkheath.github.io/Homepage/index.html">ChemEAStry</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.ptable.com/" target="_blank">Periodic Table</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Calculators
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="http://Mrjkheath.github.io/MolarityCalculator.html">Molarity Calculator</a>
+                <!--a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a-->
+                <a class="dropdown-item" href="http://Mrjkheath.github.io/AcidsAndBases/index.html">Acid and Base Conversion</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <h1 class="mt-5" style="text-align: center; margin-bottom: 20px;">Periodic Table</h1>
+      <p>
+        <!--canvas class="ChemDoodleWebComponent" id="pt" width="370" height="210">This browser does not support HTML5/Canvas.</canvas-->
+          <center>
+            <script>
+                var periodicTable = new ChemDoodle.PeriodicTableCanvas('pt', 50);
+                periodicTable.click = function(evt){
+                  if(this.hovered!=null){
+                    var e = this.getHoveredElement();
+                    var sb = [];
+                    sb.push('Element: '+e.name+'\n');
+                    sb.push('Symbol: '+e.symbol+'\n');
+                    sb.push('Atomic Number: '+e.atomicNumber+'\n');
+                    sb.push('Covalent Radius: '+e.covalentRadius+'\u212B\n');
+                    sb.push('vdW Radius: '+e.vdWRadius+'\u212B\n');
+                    alert(sb.join(''));
+                  }
+                }
+            </script>
+        </center>
+      </p>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+  </body>
+
+</html>
