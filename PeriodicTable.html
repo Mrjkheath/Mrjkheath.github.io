@@ -59,7 +59,7 @@
               <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="http://Mrjkheath.github.io/PeriodicTable.html" target="_blank">Periodic Table</a>
+              <a class="nav-link" href="http://Mrjkheath.github.io/PeriodicTable.html">Periodic Table</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,7 +85,9 @@
         <h1 class="mt-5" style="text-align: center; margin-bottom: 20px;">Periodic Table</h1>
       <p>
         <!--canvas class="ChemDoodleWebComponent" id="pt" width="370" height="210">This browser does not support HTML5/Canvas.</canvas-->
-        <a tabindex="0" id="elementModal" class="PeriodicTableCanvas" data-toggle="modal" href="#myModal"></a>
+        <center>
+        <p id="elementModal" class="PeriodicTableCanvas" data-toggle="modal" style="text-align:center; font-weight:bold;"></p>
+        </center>
         <!-- Modal -->
          <div class="modal fade" id="myModal" role="dialog">
            <div class="modal-dialog">
@@ -115,7 +117,7 @@
                     var sb = [];
                     sb.push('Element: '+e.name+'\n');
                     sb.push('Atomic Number: '+e.atomicNumber+'\n');
-                    sb.push('Mass: '+e.mass+'\u212B\n');
+                    sb.push('Molar Mass: '+e.molarMass+'\n');
                     document.getElementById("elementModal").innerHTML = sb.join('<br />');
                     document.getElementById("elementInformation").innerHTML = sb.join('<br />');
                     document.getElementById("elementSymbol").innerHTML = e.symbol;
