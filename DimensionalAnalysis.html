@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Dimensional Analysis</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/ChemDoodleWeb-8.0.0/install/ChemDoodleWeb.css" type="text/css">
+  <script type="text/javascript" src="vendor/ChemDoodleWeb-8.0.0/install/ChemDoodleWeb.js"></script>
+
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      padding-top: 54px;
+    }
+    @media (min-width: 992px) {
+      body {
+        padding-top: 56px;
+      }
+    }
+      p{
+          text-align: left
+      }
+
+      input {
+        display: inline-block;
+        float: left;
+      }
+
+  </style>
+
+</head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="http://Mrjkheath.github.io/Homepage/index.html">ChemEAStry</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://Mrjkheath.github.io/PeriodicTable.html">Periodic Table</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Calculators
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="http://Mrjkheath.github.io/MolarityCalculator.html">Molarity Calculator</a>
+                <!--a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a-->
+                <a class="dropdown-item" href="http://Mrjkheath.github.io/AcidsAndBases/index.html">Acid and Base Conversion</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <h1 class="mt-5" style="text-align: center; margin-bottom: 20px;">Dimensional Analysis</h1>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Mutiple</th>
+              <th scope="col">10<sup>6</sup></th>
+              <th scope="col">10<sup>3</sup></th>
+              <th scope="col">10<sup>-1</sup></th>
+              <th scope="col">10<sup>-2</sup></th>
+              <th scope="col">10<sup>-3</sup></th>
+              <th scope="col">10<sup>-6</sup></th>
+              <th scope="col">10<sup>-9</sup></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Prefix</th>
+              <td>mega</td>
+              <td>kilo</td>
+              <td>deci</td>
+              <td>centi</td>
+              <td>milli</td>
+              <td>micro</td>
+              <td>nano</td>
+            </tr>
+            <tr>
+              <th scope="row">Symbol</th>
+              <td>M</td>
+              <td>k</td>
+              <td>d</td>
+              <td>c</td>
+              <td>m</td>
+              <td>&micro;</td>
+              <td>n</td>
+            </tr>
+            <tr>
+              <th scope="row">Calculate</th>
+              <td><input type="text" class="form-control" id="mega" placeholder="M" readonly></td>
+              <td><input type="text" class="form-control" id="kilo" placeholder="k" readonly></td>
+              <td><input type="text" class="form-control" id="deci" placeholder="d" readonly></td>
+              <td><input type="text" class="form-control" id="centi" placeholder="c" readonly></td>
+              <td><input type="text" class="form-control" id="milli" placeholder="m" readonly></td>
+              <td><input type="text" class="form-control" id="micro" placeholder="&micro;" readonly></td>
+              <td><input type="text" class="form-control" id="nano" placeholder="n" readonly></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="text-align: center;">Enter a unit below to convert: </p>
+        <div class="row">
+            <div class="col-lg-4 text-left">
+            </div>
+            <div class="col-lg-4 text-left">
+              <input type="number" class="form-control" id="input" onkeyup="conversions()" placeholder="Enter a number!">
+            </div>
+            <div class="col-lg-4 text-left">
+              <p>
+              </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function conversions(){
+      var number = document.getElementById("input").value;
+      var megaConversion = number * 1000000;
+      var kiloConversion = number * 1000;
+      var deciConversion = number / 10;
+      var centiConversion = number / 100;
+      var milliConversion = number / 1000;
+      var microConversion = number / 1000000;
+      var nanoConversion = number / 1000000000;
+
+      document.getElementById("mega").value = megaConversion;
+      document.getElementById("kilo").value = kiloConversion;
+      document.getElementById("deci").value = deciConversion;
+      document.getElementById("centi").value = centiConversion;
+      document.getElementById("milli").value = milliConversion;
+      document.getElementById("micro").value = microConversion;
+      document.getElementById("nano").value = nanoConversion;
+    }
+    </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+  </body>
+
+</html>
