@@ -14455,6 +14455,8 @@ ChemDoodle.monitor = function(c, n, p, m) {
             c.textAlign = "center";
             c.textBaseline = "middle";
             c.fillText(b.element.symbol, b.x + b.dimension / 2, b.y + b.dimension / 2)
+            c.fillText(b.element.name, b.x + b.dimension / 2, b.y + b.dimension / 3)
+            c.fillText(b.element.molarMass, b.x + b.dimension / 2, b.y + b.dimension / 1.4)
         };
     m.click = function(c) {
         this.hovered && (this.allowMultipleSelections ? this.hovered.selected = !this.hovered.selected : this.selected = this.hovered, this.repaint())
