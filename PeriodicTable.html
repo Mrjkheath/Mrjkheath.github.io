@@ -84,7 +84,7 @@
     <!-- Page Content -->
     <div class="container">
         <h1 class="mt-5" style="text-align: center; margin-bottom: 20px;">Periodic Table</h1>
-      <p>
+      <p style="text-align: center;"> <strong>Click on an element to see its information!</strong>
         <!--canvas class="ChemDoodleWebComponent" id="pt" width="370" height="210">This browser does not support HTML5/Canvas.</canvas-->
         <center>
         <p id="elementModal" class="PeriodicTableCanvas" data-toggle="modal" style="text-align:center; font-weight:bold;"></p>
@@ -116,7 +116,7 @@
                   if(this.hovered!=null){
                     var e = this.getHoveredElement();
                     var sb = [];
-                    sb.push('Element: '+e.name+'\n');
+                    sb.push(e.name+'\n');
                     sb.push('Atomic Number: '+e.atomicNumber+'\n');
                     sb.push('Molar Mass: '+e.molarMass+'\n');
                     document.getElementById("elementModal").innerHTML = sb.join('<br />');
