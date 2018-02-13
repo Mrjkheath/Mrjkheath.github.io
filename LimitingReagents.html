@@ -12,11 +12,11 @@
   <title>Limiting Reagents and Chemical Yield</title>
 
   <!-- Bootstrap core CSS -->
+  <link href="css/small-business.css" rel="stylesheet">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="vendor/ChemDoodleWeb-8.0.0/install/ChemDoodleWeb.css" type="text/css">
-  <script type="text/javascript" src="vendor/ChemDoodleWeb-8.0.0/install/ChemDoodleWeb.js"></script>
 
   <!-- Custom styles for this template -->
+
   <style>
     body {
       padding-top: 54px;
@@ -47,7 +47,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="http://Mrjkheath.github.io/Homepage/index.html">ChemEAStry</a>
+        <a class="navbar-brand" href="http://Mrjkheath.github.io/index.html">ChemEAStry</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -70,7 +70,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="http://Mrjkheath.github.io/MolarityCalculator.html">Molarity Calculator</a>
-                <a class="dropdown-item" href="http://Mrjkheath.github.io/AcidsAndBases/index.html">Acid and Base Conversion</a>
+                <a class="dropdown-item" href="http://Mrjkheath.github.io/AcidsAndBases.html">Acid and Base Conversion</a>
                 <a class="dropdown-item" href="http://Mrjkheath.github.io/DimensionalAnalysis.html">Dimensional Analysis</a>
               </div>
             </li>
@@ -86,12 +86,13 @@
     <div class="container">
         <h1 class="mt-5" style="text-align: center;">Limiting Reagents and Chemical Yield</h1>
 
-      <div class="row">
+      <div class="row" style="margin-bottom: 10px">
         <div class="col-lg-5 text-left">
           <p>The First step to starting any limited reagent problem <br>
           is to make sure you have a balanced equation! Once you <br>
           have detemined it's balanced, you can start the problem.</p>
         </div>
+        <div class="col-lg-2 text-left"></div>
         <div class="col-lg-5 text-left">
           <p>The First step to starting any limited reagent problem <br>
           is to make sure you have a balanced equation! Once you <br>
@@ -99,52 +100,105 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" style="margin-bottom: 15px">
         <div class="col-lg-5 text-left">
           <p><strong>1.</strong> Convert the gram amounts of the elements given from<br>
              the problem, to moles. This is done by taking the grams<br>
              of the element given in the problem, and dividing it by<br>
              molar mass of that same element.</p>
         </div>
+        <div class="col-lg-2 text-left"></div>
         <div class="col-lg-5 text-left">
-          <input type="text" class="form-control" style="margin-top: 10px; margin-left: -1px;" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
+          <input type="text" class="form-control" style="margin-top: 5px; margin-left: -1px;" id="gramsGiven" placeholder="Given Grams of the Element">
           <br>
           <hr noshade style="border-width:4px; margin-top: -20px; margin-right: 1px">
-          <input type="text" class="form-control" style="margin-top:-13px; margin-left: -1px" id="molarMass" placeholder="Molar Mass of Solute">
+          <input type="text" class="form-control" style="margin-top:-13px; margin-left: -1px" id="molarMass" placeholder="Molar Mass of Element">
           <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="convertToMoles()">Calculate</button>
-          <p id="answer" style="margin-top: 5px;">The Answer will display here!</p></p>
+          <p id="stepOneAnswer" style="margin-top: 5px;">The Answer will display here!</p></p>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" style="margin-bottom: 15px">
         <div class="col-lg-5 text-left">
           <p><strong>2.</strong> Find the limiting reagent using the stoichiometric ratio.</p>
         </div>
+        <div class="col-lg-2 text-left"></div>
         <div class="col-lg-5 text-left">
-          <input type="text" class="form-control" style="margin-top: 10px; margin-left: -1px;" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
+          <input type="text" class="form-control" style="margin-top: 5px; margin-left: -1px;" id="molesOfFirstElement" placeholder="Coefficient in front of the First Element">
           <br>
           <hr noshade style="border-width:4px; margin-top: -20px; margin-right: 1px">
-          <input type="text" class="form-control" style="margin-top:-13px; margin-left: -1px" id="molarMass" placeholder="Molar Mass of Solute">
-          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="convertToMoles()">Calculate</button>
-          <p id="answer" style="margin-top: 5px;">The Answer will display here!</p></p>
+          <input type="text" class="form-control" style="margin-top:-13px; margin-left: -1px" id="molesOfSecondElement" placeholder="Coefficient in front of the Second Element">
+          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="calculateRatio()">Calculate</button>
+          <p id="stepTwoAnswer" style="margin-top: 5px;">The Answer will display here!</p></p>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" style="margin-bottom: 15px">
         <div class="col-lg-5 text-left">
-          <p><strong>3.</strong> Now we can calculate the Percent Yield of the eqution.<br>
+          <p><strong>3.</strong> Now we can calculate the Percent Yield of the equation.<br>
              Firstly, you need to multiply the amount of the limited <br>
-             reagent by the amount of </p>
+             reagent by its molar mass.</p>
         </div>
+        <div class="col-lg-2 text-left"></div>
         <div class="col-lg-5 text-left">
-          <input type="text" class="form-control" style="margin-top: 10px; margin-left: -1px;" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
+          <input type="text" class="form-control" style="margin-top: 5px; margin-left: -1px;" id="givenMolarWeight" placeholder="Given Grams of the Element">
           <br>
           <hr noshade style="border-width:4px; margin-top: -20px; margin-right: 1px">
-          <input type="text" class="form-control" style="margin-top:-13px; margin-left: -1px" id="molarMass" placeholder="Molar Mass of Solute">
-          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="convertToMoles()">Calculate</button>
-          <p id="answer" style="margin-top: 5px;">The Answer will display here!</p></p>
+          <input type="text" class="form-control" style="margin-top:-13px; margin-left: -1px" id="molarMassStepThree" placeholder="Molar Mass of Element">
+          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="molesOfLimitingReagent()">Calculate</button>
+          <p id="stepThreeAnswer" style="margin-top: 5px;">The Answer will display here!</p></p>
         </div>
       </div>
+
+      <div class="row" style="margin-bottom: 15px">
+        <div class="col-lg-5 text-left">
+          <p><strong>4. </strong>Using the information from your given equation,<br>
+              multiply the moles of the limited reagent by the <br>
+              stoichiometric factor of the excess in the equation.
+          </p>
+        </div>
+        <div class="col-lg-2 text-left"></div>
+        <div class="col-lg-5 text-left">
+          <input type="text" class="form-control" style="margin-top: 5px; width:200px; margin-left: -1px;" id="molesOfLimitedReagent" placeholder="Moles of Limited Reagent">
+          <p>x</p>
+          <input type="text" class="form-control" style=" margin-left: -1px; width:200px; margin-top: -10px;" id="excessInProblem" placeholder="Molar Mass of Solute">
+          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="multiplication()">Calculate</button>
+          <p id="multiplicationAnswer" style="margin-top: 5px;">The Answer will display here!</p></p>
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 15px">
+        <div class="col-lg-5 text-left">
+          <p><strong>5. </strong>Now take the moles you just calculated<br>
+              and multiply them by the molar mass of that element.<br>
+             </p>
+        </div>
+        <div class="col-lg-2 text-left"></div>
+        <div class="col-lg-5 text-left">
+          <input type="text" class="form-control" style="margin-top: 5px; width:200px; margin-left: -1px;" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
+          <p>x</p>
+          <input type="text" class="form-control" style=" margin-left: -1px; width:200px; margin-top: -10px;" id="molesGivenInProblem" placeholder="Molar Mass of Solute">
+          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="multiplication()">Calculate</button>
+          <p id="multiplicationAnswer" style="margin-top: 5px;">The Answer will display here!</p></p>
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 15px">
+        <div class="col-lg-5 text-left">
+          <p><strong>Calculate the Yield!</strong></p>
+        </div>
+        <div class="col-lg-2 text-left"></div>
+        <div class="col-lg-5 text-left">
+          <input type="text" class="form-control" style="margin-top: 5px; width:200px; margin-left: -1px;" id="actualYield" placeholder="Actual Yield">
+          <br>
+          <hr noshade style="border-width:4px; margin-top: -20px; margin-right: 245px">
+          <input type="text" class="form-control" style=" margin-left: -1px; width:200px; margin-top: -10px;" id="theoreticalYield" placeholder="Theoretical Yield">
+          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="yieldCalculation()">Calculate</button>
+          <p id="percentYield" style="margin-top: 5px;">The Percent Yield will display here!</p></p>
+        </div>
+      </div>
+
+
 
 
     </div>
@@ -152,11 +206,51 @@
     <script>
 
     function convertToMoles(){
-      var gramsGiven = document.getElementById("numberOfGramsGiven").value;
+      var gramsGiven = document.getElementById("gramsGiven").value;
       var molarMass = document.getElementById("molarMass").value;
       var molesofSolute = gramsGiven / molarMass;
       var formattedMolesOfSolute = molesofSolute.toFixed(3);
-      document.getElementById("answer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
+      document.getElementById("stepOneAnswer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
+    }
+
+    function calculateRatio(){
+      var gramsGiven = document.getElementById("molesOfFirstElement").value;
+      var molarMass = document.getElementById("molesOfSecondElement").value;
+      var ratio = gramsGiven / molarMass;
+      var calculatedRatio = ratio.toFixed(3);
+      document.getElementById("stepTwoAnswer").innerHTML = "The Answer is: <strong>" + calculatedRatio + " mol</strong> (Enter another one!)";
+    }
+
+    function molesOfLimitingReagent(){
+      var givenMolarWeight = document.getElementById("givenMolarWeight").value;
+      var molarMass = document.getElementById("molarMassStepThree").value;
+      var molesOfElement = givenMolarWeight / molarMass;
+      var formattedMolesOfSolute = molesOfElement.toFixed(3);
+      document.getElementById("stepThreeAnswer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
+    }
+
+    function multiplication(){
+      var molesOfLimitingReagent = document.getElementById("molesOfLimitedReagent").value;
+      var excessInProblem = document.getElementById("excessInProblem").value;
+      var molesofSolute = numberOfMolesGiven * excessInProblem;
+      var formattedMolesOfSolute = molesofSolute.toFixed(3);
+      document.getElementById("multiplicationAnswer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
+    }
+
+    function conversionToGrams(){
+      var gramsGiven = document.getElementById("numberOfMolesGiven").value;
+      var molarMass = document.getElementById("molesGivenInProblem").value;
+      var molesofSolute = numberOfMolesGiven * molesGivenInProblem;
+      var formattedMolesOfSolute = molesofSolute.toFixed(3);
+      document.getElementById("stepFourAnswer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
+    }
+
+    function yieldCalculation(){
+      var actualYield = document.getElementById("actualYield").value;
+      var theoreticalYield = document.getElementById("theoreticalYield").value;
+      var yieldCalculation = (actualYield / theoreticalYield) * 100;
+      var percentYield = yieldCalculation.toFixed(1);
+      document.getElementById("percentYield").innerHTML = "The Answer is: <strong>" + percentYield + "%</strong>";
     }
 
     </script>
