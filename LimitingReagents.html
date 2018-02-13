@@ -101,16 +101,48 @@
 
       <div class="row">
         <div class="col-lg-5 text-left">
-          <p>1. Convert the gram amounts of the elements given from<br>
-             the problem, to moles.</p>
+          <p><strong>1.</strong> Convert the gram amounts of the elements given from<br>
+             the problem, to moles. This is done by taking the grams<br>
+             of the element given in the problem, and dividing it by<br>
+             molar mass of that same element.</p>
         </div>
         <div class="col-lg-5 text-left">
-          <input type="text" class="form-control" style="margin-top: 10px" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
+          <input type="text" class="form-control" style="margin-top: 10px; margin-left: -1px;" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
           <br>
-          <hr noshade style="border-width:4px; margin-top: -20px; margin-right: -15px;">
-          <input type="text" class="form-control" style="margin-top:-13px" id="molarMass" placeholder="Molar Mass of Solute">
-          <button type="button" class="btn btn-primary" id="molButton"  onclick="convertToMoles()">Calculate</button>
-          <p id="answer" style="margin-top: 5px">The Answer will display here!</p></p>
+          <hr noshade style="border-width:4px; margin-top: -20px; margin-right: 1px">
+          <input type="text" class="form-control" style="margin-top:-13px; margin-left: -1px" id="molarMass" placeholder="Molar Mass of Solute">
+          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="convertToMoles()">Calculate</button>
+          <p id="answer" style="margin-top: 5px;">The Answer will display here!</p></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-5 text-left">
+          <p><strong>2.</strong> Find the limiting reagent using the stoichiometric ratio.</p>
+        </div>
+        <div class="col-lg-5 text-left">
+          <input type="text" class="form-control" style="margin-top: 10px; margin-left: -1px;" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
+          <br>
+          <hr noshade style="border-width:4px; margin-top: -20px; margin-right: 1px">
+          <input type="text" class="form-control" style="margin-top:-13px; margin-left: -1px" id="molarMass" placeholder="Molar Mass of Solute">
+          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="convertToMoles()">Calculate</button>
+          <p id="answer" style="margin-top: 5px;">The Answer will display here!</p></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-5 text-left">
+          <p><strong>3.</strong> Now we can calculate the Percent Yield of the eqution.<br>
+             Firstly, you need to multiply the amount of the limited <br>
+             reagent by the amount of </p>
+        </div>
+        <div class="col-lg-5 text-left">
+          <input type="text" class="form-control" style="margin-top: 10px; margin-left: -1px;" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
+          <br>
+          <hr noshade style="border-width:4px; margin-top: -20px; margin-right: 1px">
+          <input type="text" class="form-control" style="margin-top:-13px; margin-left: -1px" id="molarMass" placeholder="Molar Mass of Solute">
+          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="convertToMoles()">Calculate</button>
+          <p id="answer" style="margin-top: 5px;">The Answer will display here!</p></p>
         </div>
       </div>
 
@@ -119,6 +151,13 @@
 
     <script>
 
+    function convertToMoles(){
+      var gramsGiven = document.getElementById("numberOfGramsGiven").value;
+      var molarMass = document.getElementById("molarMass").value;
+      var molesofSolute = gramsGiven / molarMass;
+      var formattedMolesOfSolute = molesofSolute.toFixed(3);
+      document.getElementById("answer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
+    }
 
     </script>
 
