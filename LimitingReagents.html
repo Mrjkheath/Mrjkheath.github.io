@@ -163,7 +163,7 @@
           <p>x</p>
           <input type="text" class="form-control" style=" margin-left: -1px; width:200px; margin-top: -10px;" id="excessInProblem" placeholder="Molar Mass of Solute">
           <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="multiplication()">Calculate</button>
-          <p id="multiplicationAnswer" style="margin-top: 5px;">The Answer will display here!</p></p>
+          <p id="stepFourAnswer" style="margin-top: 5px;">The Answer will display here!</p></p>
         </div>
       </div>
 
@@ -175,11 +175,11 @@
         </div>
         <div class="col-lg-2 text-left"></div>
         <div class="col-lg-5 text-left">
-          <input type="text" class="form-control" style="margin-top: 5px; width:200px; margin-left: -1px;" id="numberOfGramsGiven" placeholder="Grams of Solute Given">
+          <input type="text" class="form-control" style="margin-top: 5px; width:200px; margin-left: -1px;" id="numberOfGramsGiven" placeholder="Grams Given">
           <p>x</p>
-          <input type="text" class="form-control" style=" margin-left: -1px; width:200px; margin-top: -10px;" id="molesGivenInProblem" placeholder="Molar Mass of Solute">
-          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="multiplication()">Calculate</button>
-          <p id="multiplicationAnswer" style="margin-top: 5px;">The Answer will display here!</p></p>
+          <input type="text" class="form-control" style=" margin-left: -1px; width:200px; margin-top: -10px;" id="molesGivenInProblem" placeholder="Moles Given in Problem">
+          <button type="button" style="margin-top: 10px;" class="btn btn-primary" id="molButton"  onclick="conversionToGrams()">Calculate</button>
+          <p id="stepFiveAnswer" style="margin-top: 5px;">The Answer will display here!</p></p>
         </div>
       </div>
 
@@ -232,17 +232,17 @@
     function multiplication(){
       var molesOfLimitingReagent = document.getElementById("molesOfLimitedReagent").value;
       var excessInProblem = document.getElementById("excessInProblem").value;
-      var molesofSolute = numberOfMolesGiven * excessInProblem;
+      var molesofSolute = molesOfLimitingReagent * excessInProblem;
       var formattedMolesOfSolute = molesofSolute.toFixed(3);
-      document.getElementById("multiplicationAnswer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
+      document.getElementById("stepFourAnswer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
     }
 
     function conversionToGrams(){
-      var gramsGiven = document.getElementById("numberOfMolesGiven").value;
-      var molarMass = document.getElementById("molesGivenInProblem").value;
-      var molesofSolute = numberOfMolesGiven * molesGivenInProblem;
+      var numberOfGramsGiven = document.getElementById("numberOfGramsGiven").value;
+      var molesGivenInProblem = document.getElementById("molesGivenInProblem").value;
+      var molesofSolute = numberOfGramsGiven * molesGivenInProblem;
       var formattedMolesOfSolute = molesofSolute.toFixed(3);
-      document.getElementById("stepFourAnswer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
+      document.getElementById("stepFiveAnswer").innerHTML = "The Answer is: <strong>" + formattedMolesOfSolute + " mol</strong> (Enter another one!)";
     }
 
     function yieldCalculation(){
